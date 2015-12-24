@@ -9,11 +9,13 @@ import info.halo9pan.experiment.java8.Person;
 public class Sequential {
 
 	public static void main(String[] args) {
-		List<Person> persons = Person.asList(new Person("Joe"), new Person("Jim"), new Person("John"));
+//		List<Person> persons = Person.asList(new Person("Joe"), new Person("Jim"), new Person("John"));
+		List<String> personNames = Arrays.asList("Joe", "Jim", "John");
+		List<Person> persons = personNames.stream().map(name -> new Person(name)).collect(Collectors.toList());
 		List<Person> list = persons.stream().collect(Collectors.toList());
-		System.out.println(Arrays.toString(list.toArray()));
+		list.forEach(System.out::println);
 		List<Person> filterList = persons.stream().filter(p -> p.name == "Jim").collect(Collectors.toList());
-		System.out.println(Arrays.toString(filterList.toArray()));
+		filterList.forEach((p) -> System.out.print(p + " "));
 	}
 
 }

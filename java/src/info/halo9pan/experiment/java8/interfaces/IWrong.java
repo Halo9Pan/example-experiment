@@ -7,8 +7,9 @@ public interface IWrong {
 	default void init(String param) {
 		System.out.println(param);
 	}
-	
+/*	
 	default int hashCode() {
 		// This calss can't be compiled.
 	}
+*/
 }
